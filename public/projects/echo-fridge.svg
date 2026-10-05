@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#10161c"/>
+  <polygon points="400,60 520,130 520,270 400,340 280,270 280,130" fill="none" stroke="#d98e3f" stroke-width="4"/>
+  <polygon points="400,100 485,150 485,250 400,300 315,250 315,150" fill="#d98e3f" opacity="0.18"/>
+  <text x="400" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#ece7db">Echo Fridge</text>
+  <text x="400" y="428" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#d98e3f">AI Kitchen Copilot</text>
+</svg>
