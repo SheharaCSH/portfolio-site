@@ -1,0 +1,166 @@
+/* ============================================================
+   DESIGN TOKENS
+   A small, deliberate palette: deep ink navy for the frame,
+   warm paper for readable surfaces, and a single amber accent
+   reserved for interactive / highlighted moments only.
+   ============================================================ */
+:root {
+  --ink: #10161c;
+  --ink-raised: #182028;
+  --ink-line: rgba(239, 234, 224, 0.12);
+
+  --paper: #f6f3ec;
+  --paper-dim: #e7e2d4;
+
+  --text-on-ink: #ece7db;
+  --text-on-ink-dim: #a6a297;
+  --text-on-paper: #171310;
+  --text-on-paper-dim: #5b564c;
+
+  --accent: #d98e3f;
+  --accent-soft: #f0c894;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  --max-width: 1080px;
+  --radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text-on-paper);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: inherit;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.page {
+  padding: 72px 0 96px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+  .page {
+    padding: 48px 0 64px;
+  }
+}
+
+.eyebrow-note {
+  font-size: 0.9rem;
+  color: var(--text-on-paper-dim);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--text-on-ink);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.btn-outline {
+  background: transparent;
+  /* Inherit the surrounding text color (instead of a fixed dark color) so
+     this button stays readable whether it sits on the light page
+     background or the dark hero section. */
+  border-color: currentColor;
+  color: inherit;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.section-heading {
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  margin-bottom: 0.35em;
+}
+
+.section-lede {
+  color: var(--text-on-paper-dim);
+  max-width: 56ch;
+  margin-bottom: 2.5rem;
+}
