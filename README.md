@@ -63,4 +63,3 @@ details can be updated in one place without touching the page components.
   EmailJS could be connected later.
 - `vercel.json` and `public/_redirects` make page refreshes on routes like
   `/about` work on Vercel and Netlify.
-- The project images in `public/projects/` are placeholder graphics.
