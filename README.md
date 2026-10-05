@@ -1,85 +1,66 @@
-# React Portfolio Site
+# Chamudi Hennayaka — React Portfolio
 
-A 6-page personal portfolio built with React, Vite, and React Router —
-Home, About Me, Projects, Education, Services, and Contact.
+Personal portfolio website built for COMP229 (Web Application Development), Assignment 1.
 
-## 1. Run it locally
+**Live site:** https://sheharaportfolio-site.vercel.app/
+**Repository:** https://github.com/SheharaCSH/portfolio-site
+
+## Pages
+
+- **Home** — welcome message, mission statement, and links to About and Projects
+- **About Me** — legal name, headshot, short bio, and a link to my PDF resume
+- **Projects** — Echo Fridge, AI Study Buddy, and PlanPilot, each with an image, role, description, and tech tags
+- **Education** — qualifications with dates and credentials
+- **Services** — services I offer
+- **Contact** — contact details panel and a message form (captures the input and redirects to Home)
+
+The site also has a responsive navigation bar and a custom SVG logo (hexagon with my initials).
+
+## Tech stack
+
+- React 18
+- React Router 6 (client-side routing)
+- Vite 5 (dev server and build tool)
+- Plain CSS (design tokens in `src/index.css`)
+- Hosted on Vercel, deployed from the `main` branch
+
+## Run it locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (usually `http://localhost:5173`).
+Then open the URL Vite prints (usually http://localhost:5173).
 
-## 2. Make it yours
+To create a production build:
 
-Almost everything lives in **`src/data/content.js`**. Open that file and
-replace every value marked `REPLACE:` — your name, tagline, bio, projects,
-education history, services, and contact info.
-
-For images and your resume:
-
-1. Add your headshot to `public/` (e.g. `public/headshot.jpg`) and set
-   `headshotSrc: "/headshot.jpg"` in `content.js`.
-2. Add project screenshots to `public/projects/` and set each project's
-   `imageSrc` accordingly.
-3. Add your resume PDF to `public/resume.pdf` and set
-   `resumeSrc: "/resume.pdf"`.
-
-The logo is a hand-drawn SVG hexagon with your initials
-(`src/components/Logo.jsx`) — update `profile.initials` in `content.js`
-to change it, or edit the SVG directly for something more custom.
-
-The contact form (`src/pages/Contact.jsx`) currently logs the submission
-to the console and redirects to Home. To make it fully functional, replace
-the `console.log` in `handleSubmit` with a real request (e.g. to
-Formspree, EmailJS, or your own backend endpoint).
-
-> Note: the images in `public/projects/` are generated placeholder graphics.
-> Replace them with real screenshots (same filenames, or update `imageSrc`).
-> `public/_redirects` (Netlify) and `vercel.json` make page refreshes on
-> routes like `/about` work on those hosts.
-
-## 3. Push to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: portfolio site scaffold"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo>.git
-git push -u origin main
-```
-
-Commit again after each meaningful change (adding real content, styling
-passes, form wiring, etc.) so your history shows the project's progress —
-that's part of what's being graded.
-
-## 4. Deploy
-
-**Netlify (drag-and-drop, easiest):**
 ```bash
 npm run build
+npm run preview
 ```
-Then drag the generated `dist/` folder onto https://app.netlify.com/drop.
-
-**Vercel:**
-```bash
-npm install -g vercel
-vercel
-```
-Follow the prompts; Vercel auto-detects the Vite build settings.
-
-**Render / Railway:** connect your GitHub repo in their dashboard, set
-the build command to `npm run build` and the publish/output directory to
-`dist`.
 
 ## Project structure
 
 ```
+public/        Headshot, resume PDF, favicon, project images, SPA redirect files
 src/
-  components/   Navbar, Logo, Footer
-  pages/        Home, About, Projects, Education, Services, Contact
-  data/         content.js — all editable site content in one place
+  components/  Navbar, Logo, Footer
+  pages/       Home, About, Projects, Education, Services, Contact
+  data/        content.js — all site text and project/education data
+  App.jsx      Routes and shared layout
+  main.jsx     App entry point
+  index.css    Global styles and design tokens
 ```
+
+Almost all site content lives in `src/data/content.js`, so text and project
+details can be updated in one place without touching the page components.
+
+## Notes
+
+- The contact form currently logs the submission to the console and redirects
+  to the Home page. It does not send email yet; a service such as Formspree or
+  EmailJS could be connected later.
+- `vercel.json` and `public/_redirects` make page refreshes on routes like
+  `/about` work on Vercel and Netlify.
+- The project images in `public/projects/` are placeholder graphics.
